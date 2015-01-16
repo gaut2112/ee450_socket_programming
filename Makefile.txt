@@ -1,0 +1,23 @@
+CC=g++
+
+LIBS = -lsocket -lnsl -lresolv
+
+all: healthserver doctor1 doctor2 patient1 patient2
+
+healthserver:  
+	$(CC) -o healthcenterserver healthcenterserver.cpp $(LIBS)
+
+doctor1: 
+	$(CC) -o doctor1 doctor1.cpp $(LIBS)
+
+doctor2: 
+	$(CC) -o doctor2 doctor2.cpp $(LIBS)
+
+patient1:
+	$(CC) -o patient1 patient1.cpp $(LIBS)
+	
+patient2:
+	$(CC) -o patient2 patient2.cpp $(LIBS)
+	
+clean:
+	rm -f udp-send udp-recv udp-send.o udp-recv.o 
